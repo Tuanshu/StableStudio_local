@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  stablestudio:
+    build:
+      context: .
+    image: stablestudio_local:0.1.0
+    container_name: stablestudio_local
+    tty: true
+    stdin_open: true
+    restart: 'no'
+    ports:
+      - "3000:3000"
+    command: [ "yarn", "dev:use-webui-plugin" ]

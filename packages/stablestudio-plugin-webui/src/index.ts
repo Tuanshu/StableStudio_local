@@ -92,7 +92,8 @@ export const createPlugin = StableStudio.createPlugin<{
     | "getStableDiffusionDefaultInput"
     | "getStableDiffusionExistingImages"
   > => {
-    webuiHostUrl = webuiHostUrl ?? "http://127.0.0.1:7861";
+    // http://127.0.0.1:7861 http://10.62.161.193:7865
+    webuiHostUrl = webuiHostUrl ?? "http://10.62.161.193:7865";
 
     return {
       createStableDiffusionImages: async (options) => {
@@ -229,21 +230,20 @@ export const createPlugin = StableStudio.createPlugin<{
 
         return optionsResponse.ok
           ? {
-              indicator: hasWebuiHistoryPlugin ? "success" : "info",
-              text: `Ready ${
-                hasWebuiHistoryPlugin ? "with" : "without"
+            indicator: hasWebuiHistoryPlugin ? "success" : "info",
+            text: `Ready ${hasWebuiHistoryPlugin ? "with" : "without"
               } history plugin`,
-            }
+          }
           : {
-              indicator: "error",
-              text: "unable to connect webui on " + webuiHostUrl,
-            };
+            indicator: "error",
+            text: "unable to connect webui on " + webuiHostUrl,
+          };
       },
     };
   };
-
+  // http://127.0.0.1:7861 http://10.62.161.193:7865
   const webuiHostUrl =
-    localStorage.getItem("webui-host-url") ?? "http://127.0.0.1:7861";
+    localStorage.getItem("webui-host-url") ?? "http://10.62.161.193:7865";
 
   return {
     ...webuiLoad(webuiHostUrl),
@@ -327,14 +327,14 @@ export const createPlugin = StableStudio.createPlugin<{
         },
       ];
     },
-
+    // http://127.0.0.1:7861 http://10.62.161.193:7865
     settings: {
       baseUrl: {
         type: "string",
         title: "WebUI Host URL",
         description:
           "The URL of the WebUI host. This is usually http://127.0.0.1:7861",
-        placeholder: "http://127.0.0.1:7861",
+        placeholder: "http://10.62.161.193:7865",
         value: localStorage.getItem("webui-host-url") ?? "",
       },
       upscaler: {
