@@ -9,5 +9,5 @@ services:
     stdin_open: true
     restart: 'no'
     ports:
-      - "3000:3000"
+      - "3002:3000"
     command: [ "yarn", "dev:use-webui-plugin" ]

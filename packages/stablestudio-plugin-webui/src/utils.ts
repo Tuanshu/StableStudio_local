@@ -97,8 +97,9 @@ export async function constructPayload(
 
     data.width = width ?? 512;
     data.height = height ?? 512;
-
+    // ts hardcode
     data.sampler_name = sampler?.name ?? "";
+    // data.sampler_name = 'Euler a'
     data.sampler_index = sampler?.name ?? "";
 
     data.prompt =
